@@ -1,13 +1,182 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --color-primary-dark: #D1D1D1; /* Azul oscuro/Índigo (de tus tarjetas, por ejemplo) */
+  --color-accent-yellow: #FFD700; /* Amarillo/Dorado (de tus botones CTA) */
+  --color-dark-teal-bg: #28495a; /* Color de fondo similar al de tus tarjetas de Home */
+  --color-background-page-light: #28495a; /* Un gris muy claro para el fondo general */
+  --color-white: #132931;
+  --color-text-dark: #333333;
+  --color-text-light: #D1D1D1; /* Gris más claro para descripciones */
+  --color-border-light: #D1D1D1; /* Borde suave para inputs y bloques */
+  --color-shadow-light: rgba(0, 0, 0, 0.08);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* General Body Styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #28495a;
+  color: #fff;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+/* about-section */
+.about-page {
+  padding: 4rem 2rem;
+  color: #fff;
+  text-align: center;
+}
+.about-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.about-page p {
+  font-size: 1.2em;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+/* --- Features Section --- */
+.features-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background-color: #28495a;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+
+/* --- Footer --- */
+.footer {
+  background-color: #132931;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.social-links a, .legal-links a {
+  color: white;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #1A237E;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block; /* Show hamburger */
+  }
+  
+  .hero-section, .about-section, .contact-wrapper {
+    flex-direction: column;
+  }
+}
+/* Estilos generales para las tarjetas */
+.feature-card {
+  /* background-color: #FFFFFF; Color de fondo base de la tarjeta */
+  background-image: url('/public/images/2.png');
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Para posicionar el overlay */
+  overflow: hidden;
+  min-height: 200px; /* Asegura un tamaño mínimo */
+}
+
+/* Estilo para el div de superposición de la imagen de fondo */
+.feature-card-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2; /* Ajusta la opacidad aquí (0.0 a 1.0) */
+  z-index: 1; /* Para que esté debajo del contenido */
+  /* Opcional: añade un color de fondo para mezclar */
+  background-color: rgba(26, 35, 126, 0.5); /* Azul oscuro semi-transparente */
+  background-blend-mode: multiply; /* Mezcla el color y la imagen */
+}
+
+/* Estilos para el contenido de la tarjeta para que se vea por encima del overlay */
+.feature-content {
+  position: relative; /* Asegura que el contenido esté por encima del overlay */
+  z-index: 2; /* Mayor que el z-index del overlay */
+  display: flex; /* Para centrar contenido si es necesario */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Puedes añadir padding aquí si el de .feature-card no es suficiente */
+}
+
+/* Asegura que el texto y los íconos sean visibles */
+.feature-card h3 {
+  color: #fff; /* Azul oscuro */
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: rgb(231, 197, 104);
+  font-size: 0.95em;
+}
+
+/* Asegura que los íconos también estén por encima */
+.feature-card .feature-icon {
+  z-index: 2;
+  position: relative;
+  /* Estilos para el icono si los tienes */
+}
+
+/* Estilos para el grid y la sección (igual que antes) */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.features-section h2 {
+    text-align: center;
+    color: #1A237E;
+    margin-bottom: 40px;
 }

@@ -1,0 +1,173 @@
+
+.services-page {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 3em;
+  color: #fff; 
+  margin-bottom: 50px;
+}
+
+/* --- Estilos para el Servicio Destacado (el grande de arriba) --- */
+.featured-service {
+  display: flex; /* Usamos flexbox para la imagen y el contenido */
+  flex-direction: column; /* Por defecto apila en columnas para móviles */
+  background-color: #132931; /* Gris claro */
+  border-radius: 12px;
+  overflow: hidden; /* Para contener la imagen y el overlay */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  margin-bottom: 60px;
+}
+
+@media (min-width: 768px) { /* Para pantallas más grandes, pone imagen y texto lado a lado */
+  .featured-service {
+    flex-direction: row;
+  }
+}
+
+.featured-image-container {
+  position: relative;
+  flex: 1; /* Ocupa espacio flexible */
+  min-height: 250px; /* Altura mínima para la imagen en móvil */
+}
+
+@media (min-width: 768px) {
+  .featured-image-container {
+    min-height: 400px; /* Altura más grande en escritorio */
+    width: 60%; /* La imagen ocupa más espacio horizontal */
+  }
+}
+
+.featured-service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cubre el contenedor sin distorsionarse */
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 35, 126, 0.5); /* Overlay azul oscuro semitransparente */
+  mix-blend-mode: multiply; /* Mezcla con la imagen */
+  z-index: 1;
+}
+
+.featured-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Alinea el texto a la izquierda */
+  text-align: left; /* Alinea el texto a la izquierda */
+  z-index: 2; /* Para que el contenido esté sobre el overlay de la imagen si se superpone */
+}
+
+@media (min-width: 768px) {
+  .featured-content {
+    width: 40%; /* El contenido ocupa menos espacio horizontal */
+    padding: 40px;
+  }
+}
+
+.featured-tag {
+  background-color: #FFD700; /* Amarillo/Dorado de acento */
+  color: #1A237E; /* Texto azul oscuro */
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.featured-content h2 {
+  font-size: 2.2em;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.featured-content p {
+  font-size: 1.1em;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.9; /* Para un poco de transparencia */
+}
+
+.read-more-link {
+  color: #FFD700; /* Azul oscuro */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.read-more-link:hover {
+  color: #FFD700; /* Amarillo/Dorado al pasar el ratón */
+}
+
+/* --- Estilos para la Cuadrícula de Servicios (los pequeños de abajo) --- */
+.services-grid {
+  display: grid;
+  /* En móviles: 1 columna, en tablets: 2, en escritorio: 3 */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px; /* Espacio entre las tarjetas */
+}
+
+.service-card {
+  background-color: #132931; /* Fondo blanco */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido hacia arriba */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px); /* Pequeño efecto de elevación */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  width: 80px; /* Tamaño del contenedor del icono */
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Si quieres un círculo para el icono */
+  background-color: #E0E0E0; /* Gris claro para el fondo del icono */
+  overflow: hidden; /* Asegura que la imagen no se desborde */
+}
+
+.service-icon img {
+  max-width: 70%; /* Tamaño de la imagen dentro del círculo */
+  max-height: 70%;
+  display: block;
+}
+
+.service-card h3 {
+  font-size: 1.5em;
+  color: #fff; /* Azul oscuro */
+  margin-bottom: 10px;
+  opacity: 0.9; /* Para un poco de transparencia */
+}
+
+.service-card p {
+  font-size: 0.95em;
+  color: #555555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}

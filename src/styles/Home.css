@@ -1,0 +1,250 @@
+/* src/components/Home.css */
+
+/* --- Variables de Color (asegúrate de que estén definidas) --- */
+:root {
+  --color-primary-dark: #1A237E;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F5F5F5;
+  --color-accent-yellow: #FFD700;
+  --color-text-dark: #333333;
+  --color-background-dark: #2c3242; /* Color general de fondo de la sección inferior */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 550px;
+  display: flex;
+  align-items: flex-start; /* Alinea el contenido arriba */
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-primary-dark);
+  padding-top: 80px; /* Espacio superior para separar el texto del borde */
+}
+
+.hero-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/public/images/2.png');
+  background-size: cover;
+  background-position: center; /* La imagen se posiciona a la izquierda */
+  background-repeat: no-repeat;
+  background-color: rgba(26, 35, 126, 0.8); /* Ajusta la opacidad a 0.8 (más opaca) para un fondo más oscuro */
+  background-blend-mode: multiply;
+  filter: blur(2px); /* NUEVO: Aplica un desenfoque de 2px a la imagen de fondo */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: left;
+  padding: 0 40px;
+  margin-right: 50rem;
+}
+
+.hero-content h1 {
+  font-size: 3.8em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 700;
+  
+  /* Si el texto aún no es lo suficientemente "sutil" sobre el fondo, puedes ajustar el peso de la fuente o añadir una ligera sombra de texto */
+  /* text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 700px;
+  color: rgba(255, 255, 255, 0.8); /* Un poco más sutil */
+  /* Si el texto aún no es lo suficientemente "sutil" sobre el fondo, puedes ajustar el peso de la fuente o añadir una ligera sombra de texto */
+  /* text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); */
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  
+  
+}
+
+/* El resto de tu CSS para .cta-button, .configurator-section, .configurator-card, etc., se mantiene igual */
+
+/* --- Botones --- */
+.cta-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 600;
+  text-decoration: none; /* Asegura que los enlaces no tengan subrayado */
+}
+
+.cta-button.primary {
+  background-color: var(--color-accent-yellow);
+ 
+}
+
+.cta-button.primary:hover {
+  background-color: #FFC107;
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color:#F5F5F5;
+  border: 2px solid var(--color-white);
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Sección de Tarjetas (Áreas Clave de Consultoría) --- */
+.configurator-section {
+  background-color: #28495a;
+  color: var(--color-white);
+  padding: 80px 20px;
+  text-align: center;
+  clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0% 100%);
+  margin-top: -60px;
+  position: relative;
+}
+
+.configurator-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.configurator-description {
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.configurator-cards-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.configurator-card {
+  background-color: #28495a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 30px 20px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 180px;
+  cursor: pointer;
+}
+
+.configurator-card:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-accent-yellow);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.configurator-card .card-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  background-color: var(--color-accent-yellow);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.configurator-card:hover .card-icon {
+  background-color: var(--color-white);
+}
+
+.configurator-card .card-icon img {
+  max-width: 70%;
+  max-height: 70%;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.configurator-card:hover .card-icon img {
+  filter: none;
+}
+
+.configurator-card h3 {
+  font-size: 1.3em;
+  margin-bottom: 5px;
+  color: var(--color-white);
+}
+
+.configurator-card p {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.configurator-card:hover p {
+  color: var(--color-white);
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 60px;
+    min-height: 450px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+
+  .hero-content p {
+    font-size: 1em;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+
+  .configurator-section {
+    padding: 60px 20px;
+    margin-top: -30px;
+    clip-path: polygon(0 4%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .configurator-cards-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .configurator-card {
+    width: 90%;
+  }
+}

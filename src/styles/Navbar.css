@@ -1,0 +1,183 @@
+/* src/styles/Navbar.css */
+
+/* Variables de color (ajusta si tienes una global.css con estas variables) */
+:root {
+  --navbar-bg-color: #132931; /* Color de fondo del navbar, similar al de tus tarjetas */
+  --nav-link-color: #FFFFFF; /* Color de los enlaces */
+  --nav-link-hover-color: #FFD700; /* Amarillo/Dorado al pasar el mouse */
+  --button-sign-in-bg: transparent; /* Fondo transparente para Sign In */
+  --button-sign-in-text: #FFFFFF; /* Texto blanco para Sign In */
+  --button-contact-us-bg: #FFD700; /* Amarillo/Dorado para Contact Us */
+  --button-contact-us-text: #1A237E; /* Azul oscuro para texto de Contact Us */
+  --button-border-color: #FFFFFF; /* Borde para el botón Sign In */
+  --button-hover-bg: rgba(255, 255, 255, 0.1); /* Fondo claro al pasar el mouse en Sign In */
+  --nav-height: 80px; /* Altura estándar del navbar */
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  padding: 0 20px;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky; /* O 'fixed' si quieres que siempre esté visible al hacer scroll */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Espacia el logo, enlaces y acciones */
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Limita el ancho del contenido del navbar */
+  margin: 0 auto; /* Centra el contenido del navbar */
+}
+
+.nav-logo img {
+  height: 60px; /* Ajusta el tamaño del logo si es necesario */
+  width: auto;
+  display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+.nav-links-wrapper {
+  display: flex; /* Muestra los enlaces en fila */
+  gap: 30px; /* Espacio entre los enlaces */
+  margin-left: auto; /* Empuja los enlaces a la derecha si hay espacio */
+}
+
+.nav-item {
+  color: var(--nav-link-color);
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+  position: relative; /* Para el efecto de subrayado al pasar el mouse */
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px; /* Grosor del subrayado */
+  bottom: 0;
+  left: 50%;
+  background-color: var(--nav-link-hover-color);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-item:hover {
+  color: var(--nav-link-hover-color);
+}
+
+
+.nav-actions {
+  display: flex; /* Muestra los botones en fila */
+  gap: 15px; /* Espacio entre los botones */
+  margin-left: 30px; /* Espacio entre enlaces y botones */
+}
+
+.nav-button {
+  padding: 10px 20px;
+  border-radius: 5px; /* Bordes redondeados para los botones */
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-decoration: none; /* Para el botón Contact Us que es un <a> */
+  display: inline-flex; /* Asegura que padding funcione bien y el texto esté centrado */
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-sign-in {
+  background-color: var(--button-sign-in-bg);
+  color: var(--button-sign-in-text);
+  border: 1px solid var(--button-border-color); /* Borde blanco para Sign In */
+}
+
+.nav-sign-in:hover {
+  background-color: var(--button-hover-bg); /* Fondo semi-transparente al pasar el mouse */
+  border-color: var(--nav-link-hover-color); /* Borde amarillo al pasar el mouse */
+  color: var(--nav-link-hover-color); /* Texto amarillo al pasar el mouse */
+}
+
+.nav-contact-us {
+  background-color: var(--button-contact-us-bg);
+  color: var(--button-contact-us-text);
+  border: 1px solid var(--button-contact-us-bg); /* Mismo color de fondo para el borde */
+}
+
+.nav-contact-us:hover {
+  background-color: #e6b800; /* Un amarillo ligeramente más oscuro al pasar el mouse */
+  border-color: #e6b800;
+}
+
+/* Ocultar el botón de hamburguesa por defecto en escritorio */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+}
+
+.hamburger {
+  width: 100%;
+  height: 3px;
+  background-color: var(--nav-link-color);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- Media Queries para Responsividad (ejemplo básico) --- */
+@media (max-width: 992px) {
+  .nav-links-wrapper,
+  .nav-actions {
+    display: none; /* Oculta enlaces y botones en pantallas más pequeñas */
+  }
+
+  .nav-toggle {
+    display: flex; /* Muestra el hamburguesa */
+  }
+
+  /* Estilos para el menú móvil que se activaría con isOpen */
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height); /* Debajo del navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(--navbar-bg-color); /* Mismo fondo que el navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    align-items: center;
+  }
+
+  .nav-links.active .nav-item {
+    padding: 15px 0;
+    width: 80%; /* Ancho de los elementos del menú móvil */
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador */
+  }
+
+  .nav-links.active .nav-item:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-logo img {
+    height: 50px; /* Logo más pequeño en móviles */
+  }
+}
