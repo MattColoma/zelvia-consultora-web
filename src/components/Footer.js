@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="footer-content">
         <p>© 2025 Zelbia Consultora. Todos los derechos reservados.</p>
        
-        <div className="legal-links">
+        {/*<div className="legal-links">
           <a href="#">Términos de Servicio</a>
-          <a href="#">Política de Privacidad</a>
-        </div>
+          <a href="#">Política de Privacidad</a>        
+          </div>*/}
       </div>
       
     </footer>
